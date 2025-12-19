@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "813229236940",
+    "project_id": "projectflutter-d7cb4",
+    "storage_bucket": "projectflutter-d7cb4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813229236940:android:a1a2bc8e4ce5b40adfd869",
+        "android_client_info": {
+          "package_name": "com.example.cyber_guard_agent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjnV1EtVrvzOdE0etvrxKJGhrDk-7UPgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
