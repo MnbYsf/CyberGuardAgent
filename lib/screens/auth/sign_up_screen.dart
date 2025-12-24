@@ -111,8 +111,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final passwordStrength =
-        _authService.getPasswordStrength(_passwordController.text);
+    final passwordStrength = _authService.getPasswordStrength(
+      _passwordController.text,
+    );
 
     return Scaffold(
       body: Container(
@@ -138,11 +139,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // Logo and Title
-                    Icon(
-                      Icons.security,
-                      size: 80,
-                      color: Colors.white,
-                    ),
+                    Icon(Icons.security, size: 80, color: Colors.white),
                     const SizedBox(height: 16),
                     Text(
                       'CyberGuard AI',
@@ -218,7 +215,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               controller: _passwordController,
                               obscureText: !_isPasswordVisible,
                               onChanged: (value) {
-                                setState(() {}); // Rebuild for strength indicator
+                                setState(
+                                  () {},
+                                ); // Rebuild for strength indicator
                               },
                               decoration: InputDecoration(
                                 labelText: 'Password',
@@ -246,7 +245,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter a password';
                                 }
-                                final error = _authService.validatePassword(value);
+                                final error = _authService.validatePassword(
+                                  value,
+                                );
                                 return error;
                               },
                             ),
@@ -265,22 +266,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           backgroundColor: Colors.grey.shade300,
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
-                                            _getPasswordStrengthColor(
-                                                passwordStrength),
-                                          ),
+                                                _getPasswordStrengthColor(
+                                                  passwordStrength,
+                                                ),
+                                              ),
                                           minHeight: 6,
-                                          borderRadius: BorderRadius.circular(3),
+                                          borderRadius: BorderRadius.circular(
+                                            3,
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(width: 8),
                                       Text(
                                         _getPasswordStrengthText(
-                                            passwordStrength),
+                                          passwordStrength,
+                                        ),
                                         style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.bold,
                                           color: _getPasswordStrengthColor(
-                                              passwordStrength),
+                                            passwordStrength,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -371,8 +377,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.deepPurple,
                                 foregroundColor: Colors.white,
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -386,7 +393,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         strokeWidth: 2,
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
-                                                Colors.white),
+                                              Colors.white,
+                                            ),
                                       ),
                                     )
                                   : Text(

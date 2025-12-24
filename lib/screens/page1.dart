@@ -18,9 +18,10 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
     _controller.forward();
   }
 
@@ -55,7 +56,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 40),
-                    
+
                     // Logo/Icon
                     Container(
                       padding: const EdgeInsets.all(20),
@@ -338,10 +339,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: color.withOpacity(0.5),
-          width: 2,
-        ),
+        border: Border.all(color: color.withOpacity(0.5), width: 2),
       ),
       child: Column(
         children: [
@@ -376,10 +374,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
         const SizedBox(height: 4),
         Text(
           label,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.white.withOpacity(0.7),
-          ),
+          style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
         ),
       ],
     );
@@ -391,9 +386,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
       decoration: BoxDecoration(
         color: Colors.red.withOpacity(0.2),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: Colors.red.shade400.withOpacity(0.5),
-        ),
+        border: Border.all(color: Colors.red.shade400.withOpacity(0.5)),
       ),
       child: Text(
         name,

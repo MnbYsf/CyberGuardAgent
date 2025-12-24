@@ -88,11 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     // Logo and Title
-                    Icon(
-                      Icons.security,
-                      size: 80,
-                      color: Colors.white,
-                    ),
+                    Icon(Icons.security, size: 80, color: Colors.white),
                     const SizedBox(height: 16),
                     Text(
                       'CyberGuard AI',
@@ -164,6 +160,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             const SizedBox(height: 16),
 
                             // Password Field
+                            //Text form field is better than text field because it has a validator etc ...
                             TextFormField(
                               controller: _passwordController,
                               obscureText: !_isPasswordVisible,
@@ -207,7 +204,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                          'Password reset will be implemented with Firebase'),
+                                        'Password reset will be implemented with Firebase',
+                                      ),
                                       behavior: SnackBarBehavior.floating,
                                     ),
                                   );
@@ -223,8 +221,9 @@ class _SignInScreenState extends State<SignInScreen> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.deepPurple,
                                 foregroundColor: Colors.white,
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -238,7 +237,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                         strokeWidth: 2,
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
-                                                Colors.white),
+                                              Colors.white,
+                                            ),
                                       ),
                                     )
                                   : Text(

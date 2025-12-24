@@ -18,16 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final _authService = AuthService();
 
-  final List<Widget> _pages = const [
-    Page1(),
-    Page2(),
-    Page3(),
-  ];
+  final List<Widget> _pages = const [Page1(), Page2(), Page3()];
 
   void _openSettings() {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const SettingsScreen()),
-    );
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (_) => const SettingsScreen()));
   }
 
   String _getUserInitials() {
@@ -35,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (user?.email == null) return '?';
     final email = user!.email!;
     if (email.isEmpty) return '?';
-    
+
     // Try to get first letter of name parts
     final parts = email.split('@')[0].split('.');
     if (parts.length >= 2) {
@@ -57,9 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
             .replaceAll('.', ' ')
             .replaceAll('_', ' ')
             .split(' ')
-            .map((word) => word.isNotEmpty 
-                ? word[0].toUpperCase() + word.substring(1) 
-                : '')
+            .map(
+              (word) => word.isNotEmpty
+                  ? word[0].toUpperCase() + word.substring(1)
+                  : '',
+            )
             .join(' ');
       }
     }
@@ -80,12 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
           TextButton(
             onPressed: () async {
               Navigator.of(ctx).pop();
-              
+
               // Sign out from Firebase
               await _authService.signOut();
-              
+
               if (!mounted) return;
-              
+
               // Navigate to sign-in and clear all previous routes
               Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(builder: (context) => const SignInScreen()),
@@ -103,14 +101,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = _authService.currentUser;
-    
+
     return Scaffold(
       appBar: AppBar(title: const Text('CyberGuard AI')),
 
       // ------------------------- DRAWER ------------------------
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
               accountName: Text(_getDisplayName()),
@@ -157,17 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       // -------------------- BOTTOM NAV -------------------------
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _pages,
-      ),
-
-
-
-
-
-
-
+      body: IndexedStack(index: _currentIndex, children: _pages),
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
